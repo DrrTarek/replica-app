@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "router-app",
+    "slug": "router-app",
+    "scheme": "routerapp",
+    "userInterfaceStyle": "automatic",
+    "android": { "package": "com.example.routerapp", "allowBackup": false },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      ["expo-build-properties", { "android": { "usesCleartextTraffic": true } }]
+    ]
+  }
+}
