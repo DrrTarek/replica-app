@@ -26,22 +26,22 @@ jobs:
           java-version: "17"
 
       - name: Install dependencies
-        working-directory: replica-app
+        working-directory: replica-app/replica-app
         run: npm install --legacy-peer-deps
 
       - name: Generate native Android project
-        working-directory: replica-app
+        working-directory: replica-app/replica-app
         env:
           CI: "1"
         run: npx expo prebuild --platform android
 
       - name: Build Debug APK
-        working-directory: replica-app/android
+        working-directory: replica-app/replica-app/android
         run: chmod +x gradlew && ./gradlew assembleDebug
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: replica-app-debug-apk
-          path: replica-app/android/app/build/outputs/apk/debug/app-debug.apk
+          path: replica-app/replica-app/android/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
